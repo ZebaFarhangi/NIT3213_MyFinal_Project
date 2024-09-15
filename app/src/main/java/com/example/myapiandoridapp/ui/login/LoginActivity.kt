@@ -16,6 +16,12 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class LoginActivity : AppCompatActivity() {
+    //Error handling and loading states
+    sealed class UiState<out T> {
+        data object Loading : UiState<Nothing>()
+        data class Success<T>(val data: T) : UiState<T>()
+        data class Error(val message: String) : UiState<Nothing>()
+    }
     private lateinit var binding: ActivityLoginBinding
     private val viewModel: LoginViewModel by viewModels()
 
@@ -31,17 +37,17 @@ class LoginActivity : AppCompatActivity() {
         }
 
         viewModel.loginResult.observe(this) { result ->
-            when (result) {
-                is Result.Success -> {
-                    // Navigate to MainActivity
-                    startActivity(Intent(this, MainActivity::class.java))
-                    finish()
-                }
-                is Result.Error -> {
-                    // Show error message
-                    Toast.makeText(this, "Login failed: ${result.exception.message}", Toast.LENGTH_SHORT).show()
-                }
+            if (result.isSuccess) {
+                // Navigate to MainActivity
+                startActivity(Intent(this, MainActivity::class.java))
+                finish()
+            } else if (result.isFailure) {
+                // Show error message
+                Toast.makeText(this, "Login failed: ${result.exceptionOrNull()?.message}", Toast.LENGTH_SHORT).show()
             }
         }
+
     }
+
+
 }

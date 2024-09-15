@@ -6,9 +6,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapiandoridapp.R
 import com.example.myapiandoridapp.databinding.FragmentDashboardBinding
+import com.example.myapiandoridapp.ui.details.DetailsFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -28,7 +30,7 @@ class DashboardFragment : Fragment() {
         adapter = EntityAdapter { entity ->
             // Navigate to DetailsFragment
             parentFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, DetailsFragment.newInstance(entity))
+                .replace(R.id.dashboardFragment, DetailsFragment.newInstance(entity))
                 .addToBackStack(null)
                 .commit()
         }
@@ -37,12 +39,10 @@ class DashboardFragment : Fragment() {
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         viewModel.entities.observe(viewLifecycleOwner) { result ->
-            when (result) {
-                is Result.Success -> adapter.submitList(result.data)
-                is Result.Error -> {
-                    // Show error message
-                    Toast.makeText(requireContext(), "Error loading dashboard: ${result.exception.message}", Toast.LENGTH_SHORT).show()
-                }
+            if (result.isSuccess) {
+                adapter.submitList(result.getOrNull())  // Handle success
+            } else {
+                Toast.makeText(requireContext(), "Error loading dashboard: ${result.exceptionOrNull()?.message}", Toast.LENGTH_SHORT).show()
             }
         }
 
