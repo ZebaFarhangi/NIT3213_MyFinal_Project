@@ -1,6 +1,7 @@
 package com.example.myapiandoridapp
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.ui.setupActionBarWithNavController
 import dagger.hilt.android.AndroidEntryPoint
@@ -18,6 +19,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.d("nit3213", "onCreate: ")
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
