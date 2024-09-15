@@ -3,7 +3,7 @@ package com.example.myapiandoridapp.ui.login
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
+//import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -12,6 +12,7 @@ import com.example.myapiandoridapp.MainActivity
 import com.example.myapiandoridapp.R
 import com.example.myapiandoridapp.databinding.ActivityLoginBinding
 import dagger.hilt.android.AndroidEntryPoint
+
 
 @AndroidEntryPoint
 class LoginActivity : AppCompatActivity() {
