@@ -6,32 +6,32 @@
     android:padding="16dp">
 
     <TextView
-        android:id="@+id/assetTypeTextView"
+        android:id="@+id/assetType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="assetType" />
 
     <TextView
-        android:id="@+id/tickerTextView"
+        android:id="@+id/ticker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ticker" />
 
     <TextView
-        android:id="@+id/currentPriceTextView"
+        android:id="@+id/currentPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="currentPricee" />
 
     <TextView
-        android:id="@+id/dividendYieldTextView"
+        android:id="@+id/dividendYield"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="dividendYield" />
 
     <TextView
-        android:id="@+id/dividendYieldTextView"
+        android:id="@+id/description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="dividendYield"
+        android:text="dividendYield"/>
 </LinearLayout>
