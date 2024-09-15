@@ -8,6 +8,8 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.example.myapiandoridapp.MainActivity
 import com.example.myapiandoridapp.R
 import com.example.myapiandoridapp.databinding.ActivityLoginBinding
@@ -34,6 +36,7 @@ class LoginActivity : AppCompatActivity() {
             val username = binding.usernameEditText.text.toString()
             val password = binding.passwordEditText.text.toString()
             viewModel.login(username, password)
+            findNavController(R.id.action_loginFragment_to_dashboardFragment)
         }
 
         viewModel.loginResult.observe(this) { result ->
@@ -46,6 +49,9 @@ class LoginActivity : AppCompatActivity() {
                 Toast.makeText(this, "Login failed: ${result.exceptionOrNull()?.message}", Toast.LENGTH_SHORT).show()
             }
         }
+
+
+
 
     }
 

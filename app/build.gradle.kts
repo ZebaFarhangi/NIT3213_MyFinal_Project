@@ -44,49 +44,44 @@ android {
 }
 
 dependencies {
-    implementation ("androidx.core:core-ktx:1.10.1")
-    implementation ("androidx.appcompat:appcompat:1.6.1")
-    implementation ("com.google.android.material:material:1.9.0")
-    implementation ("androidx.constraintlayout:constraintlayout:2.1.4")
-    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
-    implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.6.1")
-    implementation ("androidx.activity:activity-ktx:1.7.2")
-    implementation ("androidx.fragment:fragment-ktx:1.6.0")
 
-    // Navigation Component
-    implementation ("androidx.navigation:navigation-fragment-ktx:2.6.0")
-    implementation ("androidx.navigation:navigation-ui-ktx:2.6.0")
+
+    // Views/Fragments navigation integration
+    implementation("androidx.navigation:navigation-fragment:2.7.7")
+    implementation("androidx.navigation:navigation-ui:2.7.7")
+
 
     // Retrofit for network requests
 
-    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+    // Views/Fragments navigation integration
+    implementation("androidx.navigation:navigation-fragment:2.7.7")
+    implementation("androidx.navigation:navigation-ui:2.7.7")
+    //
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.material)
+    implementation(libs.androidx.activity)
+    implementation(libs.androidx.constraintlayout)
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
+
+    //Retrofit dependencies
     implementation("com.squareup.retrofit2:retrofit:2.11.0")
     implementation("com.squareup.retrofit2:converter-moshi:2.11.0")
     implementation("com.squareup.moshi:moshi-kotlin:1.14.0")
     implementation("com.squareup.okhttp3:logging-interceptor:4.10.0")
 
+    //json dependencies
+    //implementation(libs.converter.gson)
 
-
-    // Hilt for dependency injection
+    //Helt dependencies
     implementation("com.google.dagger:hilt-android:2.51.1")
     kapt("com.google.dagger:hilt-android-compiler:2.51.1")
 
-    // Coroutines for asynchronous programming
-    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
 
-    // Testing
-    androidTestImplementation("io.mockk:mockk-agent:1.13.12") // MockK agent for advanced mocking in instrumented tests
-    androidTestImplementation("androidx.test.ext:junit:1.1.3") // AndroidX JUnit for instrumented tests
-    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.1")
-    //testImplementation 'junit:junit:4.13.2'
-   // androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    //androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
-    // Hilt testing
-    testImplementation ("com.google.dagger:hilt-android-testing:2.44")
-    kapt ("com.google.dagger:hilt-android-compiler:2.44")
 }
-
 // Allow references to generated code
 kapt {
     correctErrorTypes = true
