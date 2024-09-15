@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import androidx.room.vo.Entity
 import com.example.myapiandoridapp.data.model.Entity
 
 class EntityAdapter(private val onItemClick: (Entity) -> Unit) :

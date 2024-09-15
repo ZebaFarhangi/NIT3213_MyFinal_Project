@@ -1,0 +1,37 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/assetTypeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="assetType" />
+
+    <TextView
+        android:id="@+id/tickerTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ticker" />
+
+    <TextView
+        android:id="@+id/currentPriceTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="currentPricee" />
+
+    <TextView
+        android:id="@+id/dividendYieldTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="dividendYield" />
+
+    <TextView
+        android:id="@+id/dividendYieldTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="dividendYield"
+</LinearLayout>
